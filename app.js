@@ -56,8 +56,19 @@ if(err){
 
 });
     }
+    else if(page=="/index/create"){
+        customers.getAll((err,result)=>{
+            var context = {data:result};
+            
+            let t = renderTemplate('index', {});
+            
+            res.end(t);
+        });
+        
+    }
 
 });
+
 server.listen(5000);
 
 function renderTemplate(name,data){
